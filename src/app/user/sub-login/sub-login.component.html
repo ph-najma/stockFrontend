@@ -1,0 +1,23 @@
+<div class="flex min-h-screen bg-gray-100">
+  <div class="flex items-center justify-center w-1/2 bg-green-100 p-10">
+    <div class="text-center">
+      <img
+        src="../../assets/logo.png"
+        alt="GainNest Logo"
+        class="h-24 w-24 mb-4 mx-auto"
+      />
+      <h1 class="text-3xl font-bold text-green-600">GainNest</h1>
+      <p class="mt-2 text-gray-700">Grow with Confidence</p>
+    </div>
+  </div>
+  <div class="flex items-center justify-center w-1/2 p-10 bg-green-50">
+    <app-main-login
+      [title]="'User Login'"
+      [loading]="loading"
+      [error]="error"
+      [successMessage]="successMessage"
+      [isUserLogin]="true"
+      (submitForm)="onSubmit($event)"
+    ></app-main-login>
+  </div>
+</div>

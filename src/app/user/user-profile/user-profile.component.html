@@ -1,0 +1,72 @@
+<app-user-header></app-user-header>
+<div class="flex h-screen text-white bg-gray-900">
+  <!-- Sidebar -->
+  <div class="w-1/4 bg-gray-800 p-6 flex flex-col justify-between">
+    <div>
+      <div class="mb-6">
+        <p class="text-sm">Good Afternoon</p>
+        <h2 class="text-2xl font-bold">{{ user.name }}</h2>
+      </div>
+      <div>
+        <p class="text-lg font-semibold mb-4">Manage Account</p>
+        <ul>
+          <li class="mb-2 hover:underline cursor-pointer">
+            Profile & Account Details
+          </li>
+          <li class="hover:underline cursor-pointer">Manage Password</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-grow p-10">
+    <!-- Display Name Section -->
+    <div class="mb-10">
+      <div class="grid grid-cols-3 gap-6 items-center">
+        <!-- Input Fields -->
+        <div class="col-span-2">
+          <label class="block text-sm mb-2">Name as per KYC</label>
+          <input
+            type="text"
+            [value]="user.fullName"
+            disabled
+            class="w-full bg-gray-800 p-2 rounded border border-gray-700 text-gray-400"
+          />
+          <label class="block text-sm mt-4 mb-2"
+            >Display Name on Platform</label
+          >
+          <div class="flex">
+            <input
+              type="text"
+              [(ngModel)]="user.name"
+              class="flex-grow bg-gray-800 p-2 rounded-l border border-gray-700"
+            />
+            <button class="bg-gray-600 hover:bg-gray-700 px-4 rounded-r">
+              Go
+            </button>
+          </div>
+        </div>
+
+        <!-- Profile Photo Section -->
+        <div class="flex flex-col items-center">
+          <img
+            [src]="user.profilePhoto"
+            alt="Profile Photo"
+            class="w-24 h-24 rounded-full border-2 border-gray-700 mb-4"
+          />
+          <label class="block cursor-pointer text-blue-400 hover:underline">
+            <input type="file" (change)="onPhotoUpload($event)" hidden />
+            Upload New
+          </label>
+          <button
+            (click)="resetPhoto()"
+            class="mt-2 text-sm text-gray-400 hover:underline"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

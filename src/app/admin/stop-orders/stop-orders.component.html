@@ -1,0 +1,127 @@
+<app-header></app-header>
+
+<div class="flex">
+  <!-- Sidebar -->
+  <aside class="w-1/4 bg-white p-6 border-r">
+    <div class="flex flex-col space-y-4">
+      <button
+        class="bg-gray-200 py-3 px-4 text-left rounded-lg text-gray-700 font-semibold hover:bg-blue-100 focus:outline-none hover:text-green-400"
+      >
+        Dashboard
+      </button>
+      <a
+        routerLink="/userList"
+        class="bg-gray-100 py-3 px-4 text-left rounded-lg text-gray-500 font-semibold hover:bg-blue-100 focus:outline-none hover:text-green-400"
+        >Users</a
+      >
+      <a
+        routerLink="/stockList"
+        class="bg-gray-100 py-3 px-4 text-left rounded-lg text-gray-500 font-semibold hover:bg-blue-100 focus:outline-none hover:text-green-400"
+        >Stocks</a
+      >
+      <button
+        class="bg-gray-100 py-3 px-4 text-left rounded-lg text-gray-500 font-semibold hover:bg-blue-100 focus:outline-none hover:text-green-400"
+      >
+        Sessions
+      </button>
+      <button
+        class="bg-gray-100 py-3 px-4 text-left rounded-lg text-gray-500 font-semibold hover:bg-blue-100 focus:outline-none hover:text-green-400"
+      >
+        Transactions
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content for Manage Stop Orders -->
+  <main class="flex-1 p-6 bg-gray-50">
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Manage Stop Orders</h1>
+
+    <!-- Filters Section -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+      <h2 class="text-lg font-semibold text-gray-800">Filter Orders</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div>
+          <label for="status" class="block text-sm text-gray-700">Status</label>
+          <select
+            id="status"
+            class="w-full mt-2 p-2 border border-gray-300 rounded-lg"
+          >
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="executed">Executed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </div>
+        <div>
+          <label for="user" class="block text-sm text-gray-700">User</label>
+          <input
+            id="user"
+            type="text"
+            class="w-full mt-2 p-2 border border-gray-300 rounded-lg"
+            placeholder="Search by user"
+          />
+        </div>
+        <div>
+          <label for="date-range" class="block text-sm text-gray-700"
+            >Date Range</label
+          >
+          <input
+            id="date-range"
+            type="date"
+            class="w-full mt-2 p-2 border border-gray-300 rounded-lg"
+          />
+        </div>
+      </div>
+      <button
+        class="mt-4 bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 focus:outline-none"
+      >
+        Apply Filters
+      </button>
+    </div>
+
+    <!-- Orders Table -->
+    <div class="overflow-x-auto bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-lg font-semibold text-gray-800 mb-4">Stop Orders</h2>
+      <table class="w-full text-left table-auto">
+        <thead>
+          <tr>
+            <th class="px-4 py-2 text-sm font-medium text-gray-700">
+              Order ID
+            </th>
+            <th class="px-4 py-2 text-sm font-medium text-gray-700">User</th>
+            <th class="px-4 py-2 text-sm font-medium text-gray-700">Stock</th>
+            <th class="px-4 py-2 text-sm font-medium text-gray-700">
+              Stop Price
+            </th>
+            <th class="px-4 py-2 text-sm font-medium text-gray-700">
+              Quantity
+            </th>
+            <th class="px-4 py-2 text-sm font-medium text-gray-700">Status</th>
+            <th class="px-4 py-2 text-sm font-medium text-gray-700">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example order row -->
+          <tr>
+            <td class="px-4 py-2 text-sm text-gray-800">67890</td>
+            <td class="px-4 py-2 text-sm text-gray-800">Jane Doe</td>
+            <td class="px-4 py-2 text-sm text-gray-800">GOOG</td>
+            <td class="px-4 py-2 text-sm text-gray-800">$2750</td>
+            <td class="px-4 py-2 text-sm text-gray-800">50</td>
+            <td class="px-4 py-2 text-sm text-gray-800">PENDING</td>
+            <td class="px-4 py-2 text-sm text-gray-800">
+              <button class="text-blue-600 hover:text-blue-800">View</button>
+              <button class="ml-4 text-yellow-600 hover:text-yellow-800">
+                Update
+              </button>
+              <button class="ml-4 text-red-600 hover:text-red-800">
+                Cancel
+              </button>
+            </td>
+          </tr>
+          <!-- Repeat rows as necessary -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>

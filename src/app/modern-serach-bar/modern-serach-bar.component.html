@@ -1,0 +1,81 @@
+<div class="relative w-full max-w-md">
+  <div class="relative">
+    <input
+      type="text"
+      placeholder="Search stocks, ETFs & indices"
+      [(ngModel)]="searchTerm"
+      (input)="onSearchChange($event)"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      class="w-full p-3 pl-12 pr-10 bg-gray-800 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out"
+    />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+      width="22"
+      height="22"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M11 4a7 7 0 1 0 0 14a7 7 0 0 0 0-14zM11 4l7 7"
+      ></path>
+    </svg>
+    <svg
+      *ngIf="searchTerm"
+      (click)="clearSearch()"
+      xmlns="http://www.w3.org/2000/svg"
+      class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer hover:text-white"
+      width="22"
+      height="22"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"
+      ></path>
+    </svg>
+  </div>
+
+  <div
+    *ngIf="isFocused && filteredStocks.length > 0"
+    class="absolute z-10 w-full mt-2 bg-gray-700 rounded-xl shadow-2xl overflow-hidden"
+  >
+    <div
+      *ngFor="let stock of filteredStocks"
+      class="flex items-center justify-between p-4 hover:bg-gray-600 cursor-pointer transition-colors"
+    >
+      <div>
+        <div class="flex items-center">
+          <span class="font-bold mr-2">{{ stock.symbol }}</span>
+          <span class="text-sm text-gray-400">{{ stock.name }}</span>
+        </div>
+        <span class="text-sm text-gray-300">${{ stock.price }}</span>
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="text-gray-400"
+        width="22"
+        height="22"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 6l6 6-6 6"
+        ></path>
+      </svg>
+    </div>
+  </div>
+</div>
